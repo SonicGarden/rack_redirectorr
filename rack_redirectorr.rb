@@ -5,7 +5,7 @@ class RackRedirectorr
   end
 
   def call(env)
-    @logger.info 'RackRedirectorr called'
+    $stdout.puts 'RackRedirectorr called'
     headers = {
         'Content-Type' => 'text/html',
         'Location'     => ENV["REDIRECT_URL"]
