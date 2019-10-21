@@ -19,3 +19,15 @@ git push heroku master
 # confirm if your request is redirected to
 # http://where-you-like.to
 ````
+
+## Run test
+
+```
+rake test
+```
+
+Or
+
+```
+rake
+```
