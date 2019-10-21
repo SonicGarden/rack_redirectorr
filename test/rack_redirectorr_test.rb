@@ -1,9 +1,9 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'rack/test'
 
 OUTER_APP = Rack::Builder.parse_file('config.ru').first
 
-class RackRedirectorrTest < Test::Unit::TestCase
+class RackRedirectorrTest < Minitest::Test
   include Rack::Test::Methods
 
   def app
@@ -15,10 +15,12 @@ class RackRedirectorrTest < Test::Unit::TestCase
   end
 
   def test_index
-    get '/'
-    assert_equal 301, last_response.status
-    header = last_response.header
-    assert_equal 'text/html', header['Content-Type']
-    assert_equal 'http://www.example.com', header['Location']
+    assert_output("RackRedirectorr called\n") do
+      get '/'
+      assert_equal 301, last_response.status
+      header = last_response.header
+      assert_equal 'text/html', header['Content-Type']
+      assert_equal 'http://www.example.com', header['Location']
+    end
   end
 end

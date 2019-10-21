@@ -4,6 +4,7 @@ class RackRedirectorr
   end
 
   def call(env)
+    puts 'RackRedirectorr called'
     headers = {
         'Content-Type' => 'text/html',
         'Location'     => ENV["REDIRECT_URL"]

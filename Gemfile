@@ -6,7 +6,7 @@ gem 'rack'
 gem 'thin'
 
 group :test do
-  gem 'test-unit'
+  gem 'minitest'
   gem 'rack-test'
   gem 'rake'
 end
