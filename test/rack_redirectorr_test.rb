@@ -15,12 +15,10 @@ class RackRedirectorrTest < Minitest::Test
   end
 
   def test_index
-    assert_output("RackRedirectorr called\n") do
-      get '/'
-      assert_equal 301, last_response.status
-      header = last_response.header
-      assert_equal 'text/html', header['Content-Type']
-      assert_equal 'http://www.example.com', header['Location']
-    end
+    get '/'
+    assert_equal 301, last_response.status
+    header = last_response.header
+    assert_equal 'text/html', header['Content-Type']
+    assert_equal 'http://www.example.com', header['Location']
   end
 end

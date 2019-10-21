@@ -1,10 +1,11 @@
 class RackRedirectorr
-  def initialize(app, options = {})
+  def initialize(app, logger, options = {})
     @app = app
+    @logger = logger
   end
 
   def call(env)
-    puts 'RackRedirectorr called'
+    @logger.info 'RackRedirectorr called'
     headers = {
         'Content-Type' => 'text/html',
         'Location'     => ENV["REDIRECT_URL"]
