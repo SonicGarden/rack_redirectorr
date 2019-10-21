@@ -23,11 +23,11 @@ git push heroku master
 ## Run test
 
 ```
-rake test
+bundle exec rake test
 ```
 
 Or
 
 ```
-rake
+bundle exec rake
 ```
